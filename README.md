@@ -1,5 +1,7 @@
 # Cupcake Gourmet - Projeto Integrador II
 
+![Imagem do projeto Cupcake Gourmet](image.jfif)
+
 Projeto acadêmico desenvolvido para a disciplina de **Projeto Integrador Transdisciplinar em Engenharia de Software II**, da Cruzeiro do Sul Virtual.
 
 - **Aluno:** Wagner Ferreira Costa
