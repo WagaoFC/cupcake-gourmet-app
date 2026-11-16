@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupcake Gourmet - Vitrine Especial</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <h1 class="logo">🧁 Cupcake Gourmet</h1>
+    </header>
+
+    <main class="container">
+        <h2 class="subtitulo">Cardápio de Hoje</h2>
+        <p class="intro">Escolha as suas doçuras favoritas e faça seu pedido!</p>
+
+        <section class="vitrine">
+            <% cupcakes.forEach(cupcake => { %>
+                <article class="card">
+                    <img src="<%= cupcake.imagem_url || '/img/default-cupcake.png' %>" alt="<%= cupcake.nome %>" class="card-img">
+                    <div class="card-info">
+                        <h3><%= cupcake.nome %></h3>
+                        <p class="descricao"><%= cupcake.descricao %></p>
+                        <span class="preco">R$ <%= parseFloat(cupcake.preco).toFixed(2).replace('.', ',') %></span>
+                        
+                        <% if (cupcake.estoque > 0) { %>
+                            <a href="/cupcake/<%= cupcake.id %>" class="btn btn-primary">Quero Este!</a>
+                        <% } else { %>
+                            <button class="btn btn-indisponivel" disabled>Esgotado</button>
+                        <% } %>
+                    </div>
+                </article>
+            <% }) %>
+        </section>
+    </main>
+</body>
+</html>

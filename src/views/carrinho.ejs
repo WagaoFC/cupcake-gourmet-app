@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Seu pedido | Cupcake Gourmet</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <main class="page-shell narrow-shell">
+      <a class="back-link" href="/">&larr; Voltar ao catalogo</a>
+      <p class="eyebrow">SEU PEDIDO</p>
+      <h1>Quase pronto.</h1>
+      <section class="order-summary">
+        <div>
+          <h2><%= cupcake.nome %></h2>
+          <p><%= cupcake.descricao || 'Cupcake artesanal' %></p>
+        </div>
+        <strong
+          >R$ <%= Number(cupcake.preco).toFixed(2).replace('.', ',') %> /
+          unidade</strong
+        >
+      </section>
+      <form class="order-form" action="/pedidos" method="post">
+        <input type="hidden" name="cupcakeId" value="<%= cupcake.id %>" />
+        <label
+          >Nome<input name="nome" autocomplete="name" required maxlength="100"
+        /></label>
+        <label
+          >E-mail<input
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+            maxlength="100"
+        /></label>
+        <label
+          >Senha<input
+            name="senha"
+            type="password"
+            autocomplete="new-password"
+            required
+            minlength="8"
+            maxlength="255"
+        /></label>
+        <label
+          >Telefone<input
+            name="telefone"
+            type="tel"
+            autocomplete="tel"
+            maxlength="20"
+        /></label>
+        <label
+          >Endereco de entrega<input
+            name="endereco_padrao"
+            autocomplete="street-address"
+            required
+            maxlength="255"
+        /></label>
+        <label
+          >Quantidade<input
+            name="quantidade"
+            type="number"
+            min="1"
+            value="1"
+            required
+        /></label>
+        <label
+          >Forma de pagamento
+          <select name="forma_pagamento" required>
+            <option value="">Selecione</option>
+            <option value="Pix">Pix</option>
+            <option value="Cartao">Cartao</option>
+            <option value="Dinheiro">Dinheiro</option>
+          </select>
+        </label>
+        <button class="button" type="submit">Confirmar pedido</button>
+      </form>
+    </main>
+  </body>
+</html>

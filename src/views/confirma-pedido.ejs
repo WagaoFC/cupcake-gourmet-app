@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pedido confirmado | Cupcake Gourmet</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <main class="page-shell narrow-shell confirmation">
+      <p class="eyebrow">PEDIDO #<%= pedido.id %></p>
+      <h1>Pedido recebido, <%= pedido.cliente.nome %>.</h1>
+      <% pedido.itens.forEach((item) => { %>
+        <p>Vamos preparar <strong><%= item.quantidade %> × <%= item.cupcake.nome %></strong> com todo cuidado.</p>
+      <% }); %>
+      <p class="total">
+        Total: R$ <%= Number(pedido.valor_total).toFixed(2).replace('.', ',') %>
+      </p>
+      <a class="button" href="/">Voltar ao catalogo</a>
+    </main>
+  </body>
+</html>
