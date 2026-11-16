@@ -20,6 +20,12 @@ Projeto acadêmico desenvolvido para a disciplina de **Projeto Integrador Transd
 
 O modo padrão não requer MySQL, arquivo `.env` nem conexão com o backend. Para desenvolvimento, `npm run dev` reinicia o servidor frontend quando os arquivos mudam.
 
+## Publicação no GitHub Pages
+
+O workflow `.github/workflows/pages.yml` publica automaticamente o conteúdo de `public` quando há push para a branch `main`, ou quando executado manualmente em **Actions**. No GitHub, abra **Settings > Pages** e selecione **GitHub Actions** como fonte de publicação. Depois do push, consulte o resumo da execução do workflow ou **Settings > Pages** para obter a URL. O workflow inclui `image.jfif` no artefato com o nome `image.jpg`.
+
+O Pages hospeda somente o frontend estático. A experiência baseada em `localStorage` funciona sem MySQL ou backend; o servidor Node/Express não é executado pelo GitHub Pages.
+
 ## Demonstração local
 
 O frontend inclui catálogo com busca e filtros, detalhes de produtos, sacola com ajuste de quantidades, controle de estoque demonstrativo, confirmação e histórico de pedidos. Os dados ficam no `localStorage` deste navegador e não são enviados a um servidor.
