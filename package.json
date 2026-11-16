@@ -5,8 +5,9 @@
   "description": "Aplicacao MVC para catalogo e pedidos de cupcakes gourmet.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
+    "start": "node frontend-server.js",
+    "start:backend": "node server.js",
+    "dev": "node --watch frontend-server.js",
     "test": "jest --runInBand"
   },
   "dependencies": {

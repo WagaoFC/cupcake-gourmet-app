@@ -12,25 +12,25 @@ Projeto acadêmico desenvolvido para a disciplina de **Projeto Integrador Transd
 ## Requisitos
 
 - Node.js e npm
-- MySQL
 
 ## Configuração
 
 1. Instale as dependências: `npm install`.
-2. Copie `.env.example` para `.env` e configure `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` e `DB_PASSWORD`.
-3. Execute `database/ddl_setup.sql` no MySQL. O script cria o banco `cupcake_gourmet_db` e as tabelas.
-4. Cadastre ao menos uma categoria e um cupcake para preencher a vitrine. O script não inclui dados iniciais; cupcakes precisam de uma categoria existente.
-5. Inicie a aplicação com `npm start` e acesse `http://localhost:3000`.
+2. Inicie a aplicação com `npm start` e acesse `http://localhost:3000`.
 
-Para desenvolvimento, `npm run dev` inicia o servidor com reinicialização ao alterar arquivos. `npm test` executa os testes Jest.
+O modo padrão não requer MySQL, arquivo `.env` nem conexão com o backend. Para desenvolvimento, `npm run dev` reinicia o servidor frontend quando os arquivos mudam.
 
-## Funcionalidades e estado atual
+## Demonstração local
 
-A rota `GET /` consulta cupcakes ativos e renderiza a vitrine. A rota `GET /cupcake/:id` está declarada para exibir os detalhes de um produto.
+O frontend inclui catálogo com busca e filtros, detalhes de produtos, sacola com ajuste de quantidades, controle de estoque demonstrativo, confirmação e histórico de pedidos. Os dados ficam no `localStorage` deste navegador e não são enviados a um servidor.
 
-O fluxo de carrinho e pedido ainda não está integrado às rotas atuais: as views `carrinho.ejs` e `confirma-pedido.ejs` existem, mas `src/routes/web.js` não declara endpoints para elas. Além disso, a rota de detalhes tenta renderizar `detalhe.ejs`, que ainda não existe. Portanto, no estado atual, a navegação para detalhes e o checkout não estão completos.
+Use somente dados fictícios. Não informe senhas, endereços ou dados de cartão. As opções de pagamento são simuladas e não processam cobranças. Os dados ficam apenas no navegador e podem ser apagados no botão **Reiniciar demonstração**.
 
-O teste em `tests/cupcake.test.js` também precisa de ajuste antes de `npm test`: seu import aponta para `../models/Cupcake`, mas o model fica em `src/models/Cupcake.js`.
+## Backend e banco opcionais
+
+Os arquivos Express/EJS, Sequelize e SQL continuam no repositório como referência acadêmica, mas não participam do comando padrão `npm start`. Para iniciar o servidor backend antigo, use `npm run start:backend`; esse modo depende de MySQL, `.env`, esquema instalado e dados cadastrados. O frontend com `localStorage` permanece como o caminho recomendado para a demonstração navegável.
+
+`npm test` executa os testes Jest da camada backend e requer as dependências do projeto. Esses testes não fazem parte do fluxo de demonstração frontend.
 
 ## Estrutura
 
@@ -44,4 +44,4 @@ O teste em `tests/cupcake.test.js` também precisa de ajuste antes de `npm test`
 - `docs/dicionario_dados.md`: dicionário de dados.
 - `tests`: testes automatizados.
 
-O Sequelize não cria nem altera tabelas automaticamente. O esquema usado pela aplicação deve ser preparado pelo script SQL.
+O script `database/ddl_setup.sql` cria o esquema de referência. O Sequelize não cria nem altera tabelas automaticamente.
