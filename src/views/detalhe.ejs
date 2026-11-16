@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= cupcake.nome %> | Cupcake Gourmet</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="/">Cupcake Gourmet</a>
+  </header>
+  <main class="detail-shell">
+    <a class="back-link" href="/">&larr; Voltar ao catálogo</a>
+    <article class="detail-layout">
+      <img
+        class="detail-image"
+        src="<%= cupcake.imagem_url || '/img/default-cupcake.png' %>"
+        alt="<%= cupcake.nome %>"
+      >
+      <div class="detail-info">
+        <p class="eyebrow">FEITO ARTESANALMENTE</p>
+        <h1><%= cupcake.nome %></h1>
+        <p class="detail-description"><%= cupcake.descricao || 'Um cupcake preparado com ingredientes selecionados.' %></p>
+        <p class="detail-price">R$ <%= Number(cupcake.preco).toFixed(2).replace('.', ',') %></p>
+        <% if (cupcake.estoque > 0) { %>
+          <p class="stock-note"><%= cupcake.estoque %> disponível(is)</p>
+          <a class="button" href="/carrinho/<%= cupcake.id %>">Continuar para o pedido</a>
+        <% } else { %>
+          <p class="stock-note sold-out">Esgotado no momento</p>
+          <a class="button button-secondary" href="/">Escolher outro cupcake</a>
+        <% } %>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

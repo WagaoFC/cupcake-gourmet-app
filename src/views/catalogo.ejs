@@ -16,6 +16,9 @@
         <p class="intro">Escolha as suas doçuras favoritas e faça seu pedido!</p>
 
         <section class="vitrine">
+            <% if (cupcakes.length === 0) { %>
+                <p class="empty-state">Ainda não há cupcakes disponíveis no catálogo.</p>
+            <% } %>
             <% cupcakes.forEach(cupcake => { %>
                 <article class="card">
                     <img src="<%= cupcake.imagem_url || '/img/default-cupcake.png' %>" alt="<%= cupcake.nome %>" class="card-img">
