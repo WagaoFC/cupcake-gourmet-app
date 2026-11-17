@@ -22,7 +22,7 @@ O modo padrão não requer MySQL, arquivo `.env` nem conexão com o backend. Par
 
 ## Publicação no GitHub Pages
 
-O workflow `.github/workflows/pages.yml` publica automaticamente o conteúdo de `public` quando há push para a branch `main`, ou quando executado manualmente em **Actions**. No GitHub, abra **Settings > Pages** e selecione **GitHub Actions** como fonte de publicação. Depois do push, consulte o resumo da execução do workflow ou **Settings > Pages** para obter a URL. O workflow inclui `image.jfif` no artefato com o nome `image.jpg`.
+O arquivo `index.html` na raiz é o ponto de entrada do GitHub Pages quando a fonte está configurada como branch `main` e diretório raiz. Ele carrega os assets de `public`. O workflow `.github/workflows/pages.yml` também prepara e publica a mesma estrutura como artefato quando o Pages usa **GitHub Actions**. Consulte **Settings > Pages** para confirmar qual fonte está ativa.
 
 O Pages hospeda somente o frontend estático. A experiência baseada em `localStorage` funciona sem MySQL ou backend; o servidor Node/Express não é executado pelo GitHub Pages.
 

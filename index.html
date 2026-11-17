@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2e9">
+  <title>Doce Forno | Cupcakes artesanais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./public/css/style.css">
+  <script src="./public/js/main.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/catalogo" aria-label="Doce Forno, ir ao catálogo">
+      <span class="brand-mark" aria-hidden="true">df</span>
+      <span>doce forno<small>ATELIÊ DE CUPCAKES</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#/catalogo" data-nav="catalogo">Cardápio</a>
+      <a href="#/pedidos" data-nav="pedidos">Meus pedidos</a>
+      <a class="cart-link" href="#/carrinho" data-nav="carrinho" aria-label="Sacola, 0 itens">
+        <span aria-hidden="true">Sacola</span><span id="cart-count" class="cart-count">0</span>
+      </a>
+    </nav>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <div id="announcement" class="announcement" role="status" aria-live="polite" hidden></div>
+    <div id="view-root"></div>
+  </main>
+  <footer class="site-footer">
+    <a class="brand brand-footer" href="#/catalogo"><span class="brand-mark" aria-hidden="true">df</span><span>doce forno<small>ATELIÊ DE CUPCAKES</small></span></a>
+    <p>Vitrine demonstrativa. Pedidos e estoque ficam apenas neste navegador.</p>
+  </footer>
+</body>
+</html>

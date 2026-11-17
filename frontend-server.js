@@ -6,7 +6,7 @@ const port = Number(process.env.PORT) || 3000;
 const publicDirectory = path.join(__dirname, 'public');
 
 app.use(express.static(publicDirectory));
-app.get('/image.jpg', (req, res) => {
+app.get('/image.jfif', (req, res) => {
     res.type('image/jpeg');
     res.sendFile(path.join(__dirname, 'image.jfif'));
 });
